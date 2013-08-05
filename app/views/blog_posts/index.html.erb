@@ -1,0 +1,12 @@
+<% @posts.each do |x|%>
+	<h1><%= link_to "#{x.title}", blog_post_path(x)%>
+		<% if current_user.id == x.user_id %> <%=link_to "(edit)", edit_blog_post_path(x) %>
+		<%end%></h1>
+	<h2><%=x.body%></h2>
+	<%x.comments.each do |y|%>
+		<p><%= y.body %></p>
+		<%end%>
+<%end%>
+
+
+<%= link_to "new", new_blog_post_path%>

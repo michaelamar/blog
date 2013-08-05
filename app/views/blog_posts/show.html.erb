@@ -1,0 +1,14 @@
+
+<p><%=@post.title %></p>
+<p><%=@post.body%></p>
+<% @comments.each do |x| %>
+	<p><%=x.body%></p>
+<%end%> 
+
+
+
+<%= form_for [@post,  @comment] do |x| %>  
+<%= x.label :body %>
+<%= x.text_area :body%> 
+<%= x.submit nil, :class =>"btn" %>
+<%end%>
